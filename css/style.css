@@ -1,0 +1,362 @@
+@charset "utf-8";
+/* CSS Document */
+
+.erro {
+    box-shadow: rgba(170, 19, 23, 0.72) 0 0 4px 1px;
+}
+
+#resultado {
+    display: none;
+}
+
+#resultado, #form {
+    transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+}
+
+input#peso, input#altura, input#idade {
+    padding: 8px;
+    margin: 0 5px 0 5px;
+    border: none;
+    padding-left: 25px;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.wizard > .steps {
+    display: none;
+}
+
+.wizard > .content {
+    margin: 0;
+    background: transparent;
+    min-height: 18em;
+}
+
+.wizard > .content > .body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Museo700-Regular';
+    src: url('Museo700-Regular-webfont.woff2') format('woff2'), url('Museo700-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold';
+    src: url('../fonts/lato-bold-webfont.woff2') format('woff2'), url('../fonts/fonts/lato-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight';
+    src: url('../fonts/lato-light-webfont.woff2') format('woff2'),
+    url('../fonts/lato-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latoregular';
+    src: url('../fonts/lato-regular-webfont.woff2') format('woff2'),
+    url('../fonts/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/**
+* Remove default margin.
+*/
+* {
+    padding: 0;
+    margin: 0;
+    float: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+h2, h1 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    color: white !important;
+    font-family: 'latobold' !important;
+}
+
+::placeholder {
+    color: #fff !important;
+}
+
+body {
+    margin: 0;
+    background-color: #433cd1 !important;
+    font-family: 'latobold';
+}
+
+/*--------CSS INFOS TEXTOS----------*/
+
+.center-block {
+    float: none !important
+}
+
+#box-center {
+    margin-top: 50px;
+}
+
+#title-logo h1 {
+    font-size: 210px;
+    text-align: right;
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+}
+
+#title-logo h2 {
+    font-size: 69px;
+    text-align: right;
+}
+
+#title-resultado h2 {
+    padding-top: 70px;
+    font-size: 55px;
+    text-align: center;
+
+}
+
+#title-resultado h1 {
+    font-size: 157px;
+    text-align: center;
+
+}
+
+.resut-info h2 {
+    font-size: 39px;
+}
+
+img.icone {
+    margin-top: 60px;
+}
+
+img.iconer {
+    margin-top: 0px;
+}
+
+button {
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+/*--------CSS INPUT IMC--------*/
+
+label {
+    text-align: left !important;
+    font-family: 'latobold' !important;
+    font-size: 29px;
+    color: white;
+}
+
+input {
+    border-style: none;
+    background: transparent;
+    outline: none;
+}
+
+.style-input {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4.8rem 2.8rem 5.5rem;
+    font-size: 35px !important;
+    font-family: 'latobold' !important;
+    color: #fff !important;
+    background-color: #322d9c;
+}
+
+.style-input:after {
+    width: 33.33%;
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999;
+    height: 12px;
+    background-position: 0% 0%;
+    background: -webkit-linear-gradient(left, #B294FF, #57E6E6, #6861f4, #57E6E6, #B294FF, #57E6E6);
+    background: linear-gradient(to right, #B294FF, #57E6E6, #6861f4, #57E6E6, #B294FF, #57E6E6);
+    background-size: 500% auto;
+    -webkit-animation: gradient 3s linear infinite;
+    animation: gradient 3s linear infinite;
+    top: 143px;
+}
+
+.style-input.step2:after {
+    width: 66.66%;
+}
+
+.style-input.step3:after {
+    width: 100%;
+}
+
+.style-input input {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    color: #fff;
+    font-size: 3.5rem;
+    line-height: 2.4rem;
+    vertical-align: middle;
+}
+
+.style-input button {
+    color: #7881A1;
+    line-height: 2.4rem;
+    vertical-align: middle;
+    -webkit-transition: color .25s;
+    transition: color .25s;
+    background-image: url(../img/icon-seta.png) no-repeat;
+}
+
+.style-input button:hover {
+    color: #BFD2FF;
+}
+
+/*------------CSS RESULTADOS--------*/
+
+.resut-info {
+    background-color: #302aab;
+    text-align: center;
+    padding: 45px 0 45px;
+}
+
+.btn-primary {
+    margin-top: 60px;
+    font-family: 'latobold' !important;
+    padding: 2.8rem 4.5rem 2.8rem !important;
+    color: #fff !important;
+    font-size: 2.7rem !important;
+    background-color: #36d8fb !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+.btn-primary:hover {
+    background: #04a8cc !important;
+    transition: 1s ease-out;
+}
+
+/*--------CSS TABELA DE RESULTADOS--------*/
+
+.table-result {
+    padding-top: 100px;
+}
+
+.tabela-resultados table {
+    max-width: 960px;
+    margin: 10px auto;
+
+}
+
+.tabela-resultados caption {
+    font-size: 23px !important;
+    font-family: 'latobold' !important;
+    color: #fff;
+    padding: 5px 0;
+}
+
+.tabela-resultados caption span {
+    font-family: 'latoregular' !important;
+    font-size: 15px;
+}
+
+.tabela-resultados thead th {
+    font-weight: 400;
+    font-size: 18px !important;
+    background: #2f26b0 !important;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.tabela-resultados tr {
+    background: #2f26b0 !important;
+    border-bottom: 0px solid #FFF;
+    margin-bottom: 5px;
+}
+
+.tabela-resultados tr:nth-child(odd) {
+    background-color: #1d1697 !important;
+
+}
+
+.tabela-resultados th, td {
+    text-align: left;
+    font-family: 'latolight' !important;
+    padding: 20px !important;
+    color: #fff;
+    font-size: 16px !important;
+    font-weight: lighter;
+    border-right: 1px solid #433cd1;
+}
+
+.tabela-resultados td {
+    text-align: center;
+}
+
+.tabela-resultados thead th:nth-child(2) {
+    text-align: center !important;
+
+}
+
+.tabela-resultados tfoot tr {
+    background: none;
+}
+
+tfoot td {
+    padding: 10px 2px;
+    font-size: 0.8em;
+    font-style: italic;
+    color: #8a97a0;
+}
+
+@-webkit-keyframes gradient {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}

@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- As 3 meta tags acima *devem* vir em primeiro lugar dentro do `head`; qualquer outro conteúdo deve vir *após* essas tags -->
+    <title>Calcule seu IMC</title>
+
+    <!-- Bootstrap -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/jquery.steps.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+    <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div id="form">
+    <div class="container">
+        <div class="row">
+            <div id="box-center" class="col-sm-4 col-md-8 center-block">
+                <div id="title-logo" class="col-sm-4 col-md-9 animated fadeInLeft"><h2>Calcule o seu</h2>
+                    <h1>IMC</h1></div>
+                <div class="col-sm4 col-md-3">
+                    <img class="icone animated fadeInRight" src="img/icone.png"
+                         alt="Calcule seu IMC" title="Logo IMG">
+                </div>
+
+                <div class="wizard" id="steps">
+                    <h3></h3>
+                    <section>
+
+                        <label>Qual seu peso?</label>
+                        <div class="style-input">
+                            <input id="peso" type="text" alt="Digite sua idade"
+                                   placeholder="0,0 kg">
+                            <button type="button" onclick="javascript: proximo_passo()">&raquo;</button>
+                        </div>
+
+                    </section>
+
+                    <h3></h3>
+                    <section>
+
+                        <label>Qual sua altura?</label>
+                        <div class="style-input step2">
+                            <button type="button" onclick="javascript: passo_anterior()">&laquo;</button>
+                            <input id="altura" type="text" alt="Digite sua altura"
+                                   placeholder="0,00 m">
+                            <button type="button" onclick="javascript: proximo_passo()">&raquo;</button>
+                        </div>
+
+                    </section>
+
+                    <h3></h3>
+                    <section>
+
+                        <label>Qual sua idade?</label>
+                        <div class="style-input step3">
+                            <button type="button" onclick="javascript: passo_anterior()">&laquo;</button>
+                            <input id="idade" type="text" alt="Digite sua idade"
+                                   placeholder="0 anos">
+                            <button type="button" onclick="javascript: resultado()">&raquo;</button>
+                        </div>
+
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="resultado">
+    <!-----------Inicio do Header--------->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-8 center-block">
+                <div class="col-sm-4 col-md-3"><img class="iconer animated fadeInRight" src="img/icone.png"
+                                                    alt="Calcule seu IMC" title="Logo IMG"></div>
+                <div id="title-resultado" class="col-sm-4 col-md-8 animated fadeInLeft"><h2 class="resultado">Seu IMC
+                    é</h2>
+                    <h1 class="resultado" id="imc">23,3</h1></div>
+            </div>
+        </div>
+    </div>
+    <!-----------FIM do Header--------->
+
+    <!-----------Faixa Mensagem Resultado --------->
+    <section class="resut-info"><h2 id="msg_resultado">Parabéns, você está no PESO IDEAL :)</h2></section>
+
+    <!-----------Inicio do Botão Tabela--------->
+    <button type="button" class="btn btn-primary center-block animated zoomIn">Confira a tabela de classificação
+    </button>
+
+    <!-----------Inicio da Tabela de Resultado--------->
+    <section class="table-result">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-md-12">
+                    <div class="col-sm-4 col-md-4">
+                        <table class="tabela-resultados">
+                            <caption>Crianças e Jovens <span>(até 20 anos)</span></caption>
+                            <thead>
+                            <tr>
+                                <th scope="col">Classificação</th>
+                                <th scope="col">IMC</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Baixo peso</th>
+                                <td>&lt;18,5</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Eutrofia (peso ideal)</th>
+                                <td>18,5 a 24,9</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Excesso de peso</th>
+                                <td>25 a 29,9</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Obesidade</th>
+                                <td>&gt;30</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <table class="tabela-resultados">
+                            <caption>Adultos <span>(entre 21 e 65 anos)</span></caption>
+                            <thead>
+                            <tr>
+                                <th scope="col">Classificação</th>
+                                <th scope="col">IMC</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Baixo peso</th>
+                                <td>&lt;18,5</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Eutrofia (peso ideal)</th>
+                                <td>18,5 a 24,9</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Excesso de peso</th>
+                                <td>25 a 29,9</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Obesidade</th>
+                                <td>&gt;30</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <table class="tabela-resultados">
+                            <caption>Idosos <span>(a partir de 66 anos)</span></caption>
+                            <thead>
+                            <tr>
+                                <th scope="col">Classificação</th>
+                                <th scope="col">IMC</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Baixo peso</th>
+                                <td>&lt;18,5</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Eutrofia (peso ideal)</th>
+                                <td>18,5 a 24,9</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Excesso de peso</th>
+                                <td>25 a 29,9</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Obesidade</th>
+                                <td>&gt;30</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button type="button" class="btn btn-primary center-block animated zoomIn" onclick="javacript: reiniciar()">Refazer
+        IMC
+    </button>
+
+    <br/><br/>
+    <!-----------Fim da Tabela de Resultado--------->
+</div>
+
+
+<!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/jquery.steps.min.js"></script>
+<!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+	
+
+    jQuery(function ($) {
+
+        $("#steps").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            autoFocus: true,
+            enableKeyNavigation: false,
+            enablePagination: false
+        });
+
+    });
+
+    var passo = 1;
+   	var peso = 0;
+    var altura = 0;
+    var idade;
+
+    function reiniciar() {
+        passo = 1;
+        $("#steps").steps("previous");
+        $("#steps").steps("previous");
+        $("#steps").steps("previous");
+        $('#resultado').css('display', 'none');
+        $('#form').css('display', 'block');
+		$("#peso").val('');
+		$("#altura").val('');
+		$("#idade").val('');
+    }
+
+    function passo_anterior() {
+        $("#steps").steps("previous");
+        passo--;
+    }
+
+    function proximo_passo() {
+
+        var input;
+        var prox_input;
+        var ok = false;
+
+        switch (passo) {
+            case 1:
+                input = $('#peso');
+                prox_input = $('#altura');
+                var val_peso = input.val().replace(',', '.');
+
+                if ($.isNumeric(val_peso)) {
+                    peso = val_peso;
+                    ok = true;
+                }
+                break;
+
+            case 2:
+                input = $('#altura');
+                prox_input = $('#idade');
+                var val_altura = input.val().replace(',', '.');
+
+                if ($.isNumeric(val_altura)) {
+                    altura = val_altura;
+                    ok = true;
+                }
+                break;
+        }
+
+        if (ok) {
+            input.removeClass('erro');
+            $("#steps").steps("next");
+            prox_input.focus();
+            passo++;
+        } else
+            input.addClass('erro');
+    }
+
+    function resultado() {
+        input = $('#idade');
+        var val_idade = parseInt(input.val());
+
+        if (val_idade > 0 && val_idade < 150) {
+            idade = val_idade;
+            input.removeClass('erro');
+
+
+            //-----------------------------------calcular resultado aqui---------------------------
+			var quadrado = (altura*altura);
+            var imc = (peso/quadrado);//aplicar a formulaa aqui
+			var imc = parseFloat(imc.toFixed(2));
+            
+			if(imc<18.5){
+				$('#msg_resultado').html('Ops, está na hora de rever os seus hábitos :/');
+			}
+			else if(imc>=18.5 && imc<24.9){
+				$('#msg_resultado').html('Parabéns, você está no PESO IDEAL :)');
+			}
+			else if(imc>=25 && imc<29.9) {
+				$('#msg_resultado').html('Ops, está na hora de rever os seus hábitos :/');
+			}
+			else if(imc>=30 && imc<39.9) {
+				$('#msg_resultado').html('Ops, está na hora de rever os seus hábitos :/');
+			}
+			else if (imc>40)
+				$('#msg_resultado').html('Ops, está na hora de rever os seus hábitos :/');
+			
+            //if (imc > 1 && imc <= 10)
+                //$('#msg_resultado').html('Parabéns, você está no PESO IDEAL :)');
+            //else if (imc > 10 && imc < 20)
+                //$('#msg_resultado').html('Parabéns, você está no PESO IDEAL :)');
+            //-----------------------------------so precisa mexer ai so---------------------------
+
+
+            $('#imc').html(imc);
+            $('#form').css('display', 'none');
+            $('#resultado').css('display', 'block');
+
+        } else {
+            input.addClass('erro');
+        }
+    }
+</script>
+
+</body>
+</html>
