@@ -27,53 +27,52 @@ for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElemen
 mixpanel.init("06edb89cc37a28e38d92e9dd01fefa08");</script><!-- end Mixpanel -->
 </head>
 <body>
-
 <div id="form">
     <div class="container">
         <div class="row">
-            <div id="box-center" class="col-sm-4 col-md-8 center-block">
-                <div id="title-logo" class="col-sm-4 col-md-9 animated fadeInLeft"><h2>Calcule o seu</h2>
+            <div id="box-center" class="col-xs-12 col-sm-12 col-md-8 center-block">
+                <div id="title-logo" class="col-xs-12 col-sm-7 col-md-9 animated fadeInLeft"><h2>Calcule o seu</h2>
                     <h1>IMC</h1></div>
-                <div class="col-sm4 col-md-3">
+                <div class="col-xs-12 col-sm-4 col-md-3">
                     <img class="icone animated fadeInRight" src="img/icone.png"
                          alt="Calcule seu IMC" title="Logo IMG">
                 </div>
 
-                <div class="wizard" id="steps">
+              <div class="wizard" id="steps">
                     <h3></h3>
                     <section>
-
+                        <!-----------PESO--------->
                         <label>Qual seu peso?</label>
                         <div class="style-input">
-                            <input id="peso" type="text" alt="Digite sua idade"
+                            <input id="peso" type="text" onkeypress="if (event.keyCode==13){ proximo_passo(this.value);return false;}" name="peso" required="required" alt="Digite sua idade"
                                    placeholder="0,0 kg">
-                            <button type="button" onclick="javascript: proximo_passo()">&raquo;</button>
+                            <button type="button" onclick="javascript: proximo_passo()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
 
                     </section>
 
                     <h3></h3>
                     <section>
-
+                        <!-----------ALTURA--------->
                         <label>Qual sua altura?</label>
                         <div class="style-input step2">
-                            <button type="button" onclick="javascript: passo_anterior()">&laquo;</button>
-                            <input id="altura" type="text" alt="Digite sua altura"
+                            <button type="button" onclick="javascript: passo_anterior()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                            <input id="altura" type="text" onkeypress="if (event.keyCode==13){ proximo_passo(this.value);return false;}" name="altura" alt="Digite sua altura"
                                    placeholder="0,00 m">
-                            <button type="button" onclick="javascript: proximo_passo()">&raquo;</button>
+                            <button type="button" onclick="javascript: proximo_passo()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
 
                     </section>
 
                     <h3></h3>
                     <section>
-
+                        <!-----------IDADE--------->
                         <label>Qual sua idade?</label>
                         <div class="style-input step3">
-                            <button type="button" onclick="javascript: passo_anterior()">&laquo;</button>
-                            <input id="idade" type="text" alt="Digite sua idade"
+                            <button type="button" onclick="javascript: passo_anterior()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                            <input id="idade" type="text" onkeypress="if (event.keyCode==13){ resultado(this.value);return false;}" name="idade" alt="Digite sua idade"
                                    placeholder="0 anos">
-                            <button type="button" onclick="javascript: resultado()">&raquo;</button>
+                            <button type="button" onclick="javascript: resultado()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
 
                     </section>
@@ -88,10 +87,10 @@ mixpanel.init("06edb89cc37a28e38d92e9dd01fefa08");</script><!-- end Mixpanel -->
     <!-----------Inicio do Header--------->
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 col-md-8 center-block">
-                <div class="col-sm-4 col-md-3"><img class="iconer animated fadeInRight" src="img/icone.png"
+            <div class="col-xs-12 col-sm-12 col-md-8 center-block">
+                <div class="col-xs-12 col-sm-4 col-md-3"><img class="iconer animated fadeInRight" src="img/icone.png"
                                                     alt="Calcule seu IMC" title="Logo IMG"></div>
-                <div id="title-resultado" class="col-sm-4 col-md-8 animated fadeInLeft"><h2 class="resultado">Seu IMC
+                <div id="title-resultado" class="col-xs-12 col-sm-8 col-md-8 animated fadeInLeft"><h2 class="resultado">Seu IMC
                     é</h2>
                     <h1 class="resultado" id="imc">23,3</h1></div>
             </div>
@@ -103,11 +102,11 @@ mixpanel.init("06edb89cc37a28e38d92e9dd01fefa08");</script><!-- end Mixpanel -->
     <section class="resut-info"><h2 id="msg_resultado">Parabéns, você está no PESO IDEAL :)</h2></section>
 
     <!-----------Inicio do Botão Tabela--------->
-    <button type="button" class="btn btn-primary center-block animated zoomIn">Confira a tabela de classificação
+    <button type="button" onclick="tabelaresult()" class="btn btn-primary center-block animated zoomIn">Confira a tabela de classificação
     </button>
 
     <!-----------Inicio da Tabela de Resultado--------->
-    <section class="table-result">
+    <section id="table-result" class="table-result animated fadeInUp">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 col-md-12">
@@ -201,17 +200,14 @@ mixpanel.init("06edb89cc37a28e38d92e9dd01fefa08");</script><!-- end Mixpanel -->
                 </div>
             </div>
         </div>
-    </section>
+    
 
     <button type="button" class="btn btn-primary center-block animated zoomIn" onclick="javacript: reiniciar()">Refazer
         IMC
     </button>
-
-    <br/><br/>
+</section>
     <!-----------Fim da Tabela de Resultado--------->
 </div>
-
-
 <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/jquery.steps.min.js"></script>
@@ -264,7 +260,7 @@ mixpanel.init("06edb89cc37a28e38d92e9dd01fefa08");</script><!-- end Mixpanel -->
 
         switch (passo) {
             case 1:
-                input = $('#peso');
+                input = $('#peso').keydown();
                 prox_input = $('#altura');
                 var val_peso = input.val().replace(',', '.');
 
@@ -272,6 +268,9 @@ mixpanel.init("06edb89cc37a28e38d92e9dd01fefa08");</script><!-- end Mixpanel -->
                     peso = val_peso;
                     ok = true;
                 }
+				else {
+					$('#box-msg').html('mensagem do erro');
+				}
                 break;
 
             case 2:
@@ -283,6 +282,9 @@ mixpanel.init("06edb89cc37a28e38d92e9dd01fefa08");</script><!-- end Mixpanel -->
                     altura = val_altura;
                     ok = true;
                 }
+				else {
+					$('#box-msg').html('mensagem do erro');
+				}
                 break;
         }
 
@@ -324,10 +326,6 @@ mixpanel.init("06edb89cc37a28e38d92e9dd01fefa08");</script><!-- end Mixpanel -->
 			else if (imc>40)
 				$('#msg_resultado').html('Ops, está na hora de rever os seus hábitos :/');
 			
-            //if (imc > 1 && imc <= 10)
-                //$('#msg_resultado').html('Parabéns, você está no PESO IDEAL :)');
-            //else if (imc > 10 && imc < 20)
-                //$('#msg_resultado').html('Parabéns, você está no PESO IDEAL :)');
             //-----------------------------------so precisa mexer ai so---------------------------
 
 
@@ -340,6 +338,15 @@ mixpanel.init("06edb89cc37a28e38d92e9dd01fefa08");</script><!-- end Mixpanel -->
         }
     }
 </script>
-
+<script>
+	function tabelaresult() {
+    var x = document.getElementById('table-result');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
 </body>
 </html>
