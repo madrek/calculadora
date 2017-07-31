@@ -330,19 +330,23 @@
 			var imc = parseFloat(imc.toFixed(2));
             
 			if(imc<18.5){
-				$('#msg_resultado').html('Ops, está na hora de rever os seus hábitos :/');
+				$('#msg_resultado').html('Baixo peso,ops, está na hora de rever os seus hábitos :/');
 			}
 			else if(imc>=18.5 && imc<24.9){
-				$('#msg_resultado').html('Parabéns, você está no PESO IDEAL :)');
+				$('#msg_resultado').html('Eutrofia ,parabéns, você está no PESO IDEAL :)');
 			}
 			else if(imc>=25 && imc<29.9) {
-				$('#msg_resultado').html('Ops, está na hora de rever os seus hábitos :/');
+				$('#msg_resultado').html('Pré-obesidade,ops, está na hora de rever os seus hábitos :/');
 			}
-			else if(imc>=30 && imc<39.9) {
-				$('#msg_resultado').html('Ops, está na hora de rever os seus hábitos :/');
+			else if(imc>=30 && imc<39.9) 
+            {
+			if(imc>=30 && imc<34.9)
+                $('#msg_resultado').html('Obesidade, Grau I,ops, está na hora de rever os seus hábitos :/');
+            if(imc>=35 && imc<39.9)
+                $('#msg_resultado').html('Obesidade, Grau II,ops, está na hora de rever os seus hábitos :/');
 			}
 			else if (imc>40)
-				$('#msg_resultado').html('Ops, está na hora de rever os seus hábitos :/');
+				$('#msg_resultado').html('Obesidade mórbida,Ops, está na hora de rever os seus hábitos :/');
 			
             //-----------------------------------so precisa mexer ai so---------------------------
 
